@@ -13,7 +13,7 @@
 #define IDC_EDITIP			202
 #define IDC_BOTONENVIAR		203
 
-char szMiIP[17] = "192.168.1.73";
+char szMiIP[17] = "127.0.0.1";
 char szUsuario[32] = "MaquinaWin";
 
 DWORD WINAPI Servidor(LPVOID argumento);
@@ -224,7 +224,7 @@ int Cliente(HWND hChat, char* szDirIP, LPSTR pstrMensaje) {
 	
 	if (ConnectSocket == INVALID_SOCKET) {
 		MessageBox(NULL, "Unable to connect to server!\n", "Error en  cliente", MB_OK | MB_ICONERROR);
-		sprintf(szMsg, "Error en la llamada a connect\nla dirección %s no es válida", szDirIP);
+		sprintf(szMsg, "Error en la llamada a connect\nla direcciÃ³n %s no es vÃ¡lida", szDirIP);
 		Mostrar_Mensaje(hChat, localhost, chat, szMsg, RGB(255, 0, 0));
 		WSACleanup();
 		
@@ -326,7 +326,7 @@ DWORD WINAPI Servidor(LPVOID argumento) {
 	}
 	
 	while (TRUE) {
-		//MessageBox(NULL, "Esperando conexión", "Depuración", MB_OK);
+		//MessageBox(NULL, "Esperando conexiÃ³n", "DepuraciÃ³n", MB_OK);
 		ClientSocket = accept(ListenSocket, NULL, NULL);
 		if (ClientSocket == INVALID_SOCKET) {
 			wsprintf(msgFalla, "acept failed with error: %d", iResult);
